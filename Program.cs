@@ -49,14 +49,9 @@ namespace number_guessing
                 {
                     Console.WriteLine($"\nYour guess is too low! You have {GuessesLeft} guesses left!");
                 }
-                else if (userGuess > randomNumber)
+                else
                 {
                     Console.WriteLine($"\nYou guess is too high! You have {GuessesLeft} guesses left!");
-                }
-                else if (userGuess == randomNumber) //if user guessed correctly, end the loop
-                {
-                    Console.WriteLine("\nCongratualtions you guessed correctly!");
-                    break;
                 }
             }
 
