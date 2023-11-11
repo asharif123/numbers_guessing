@@ -1,6 +1,8 @@
-﻿/*This game involves a secret number being chosen by the computer within a specific range (let’s say 1-100) and the player then tries to guess this number.
+﻿/*This game involves a secret number being chosen by the computer within a specific range (let’s say 1-100) 
+ * //the player then tries to guess this number.
 
-If the number they guess is too low, the program will say “too low” and if it is too high it will reply with “too high”. The player wins when they guess the correct number.
+If the number they guess is too low, the program will say “too low” and if it is too high it will reply with “too high”. 
+The player wins when they guess the correct number.
 
 Added Difficulty: Put a limit on how many wrong guesses they can have. Too many and the game ends with “You lose”.
 
@@ -16,7 +18,32 @@ namespace number_guessing
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Guess a number 1 to 100!\n");
+            int userGuess = int.Parse(Console.ReadLine());
+
+            //see if user enters a number btwn 1 to 100
+            if (userGuess < 1 || userGuess > 100)
+            {
+                Console.WriteLine("\nPlease enter a value between 1 to 100!");
+                return;
+            }
+
+            //Generate a random number between 1 to 100
+            Random rng = new Random();
+            int randomNumber = rng.Next(1, 100);
+            Console.WriteLine(randomNumber);
+            if (userGuess < randomNumber)
+            {
+                Console.WriteLine("Your guess is too low! Try again!");
+            }
+            else if (userGuess > randomNumber)
+            {
+                Console.WriteLine("You guess is too high!");
+            }
+            else
+            {
+                Console.WriteLine("You guessed correctly!");
+            }
         }
     }
 }
