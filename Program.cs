@@ -11,9 +11,6 @@ rocket Tips: First thing to look at is generating a random number. Despite the l
 Once you have a random number chosen, ask the player for a guess.
 Compare their guess to this random number chosen. An easy if statement can be used to see if it is too high or too low. If they are equal, tell the player they win and restart the game.
 */
-
-using System.ComponentModel;
-
 namespace number_guessing
 {
     internal class Program
