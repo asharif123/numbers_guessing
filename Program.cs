@@ -17,7 +17,6 @@ namespace number_guessing
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("You have 5 chances to guess a number between 1 to 100!\n");
             //Generate a random number between 1 to 100
             Random rng = new Random();
             int randomNumber = rng.Next(1, 100);
@@ -26,21 +25,25 @@ namespace number_guessing
             {
                 Console.WriteLine("Guess a number between 1 to 100!\n");
                 int userGuess = int.Parse(Console.ReadLine());
-                if (GuessesLeft == 0) //Game ends if user fails to guess the number in 5 attempts.
+
+                //Game ends if user fails to guess the number in 5 attempts.
+                //and statement needed because if user enters correct number on last guess
+                //it will show user was correct and not show user how many guesses are left
+                if (GuessesLeft == 0 & userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                     break; //add break statement to ensure user cannot see how many guesses are left after using all 5 attempts
                 }
                 //see if user enters a number btwn 1 to 100
-                if (userGuess < 1 || userGuess > 100)
-                {
-                    Console.WriteLine("\nPlease enter a value between 1 to 100!");
-                    return;
-                }
                 if (userGuess == randomNumber) //see if user enters the correct value
                 {
                     Console.WriteLine("\nYou guessed correctly!");
                     break;
+                }
+                else if (userGuess < 1 || userGuess > 100)
+                {
+                    Console.WriteLine("\nPlease enter a value between 1 to 100!");
+                    return;
                 }
                 else if (userGuess < randomNumber)
                 {
