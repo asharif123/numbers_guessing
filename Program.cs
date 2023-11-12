@@ -28,7 +28,7 @@ namespace number_guessing
                 //Game ends if user fails to guess the number in 5 attempts.
                 //and statement needed because if user enters correct number on last guess
                 //it will show user was correct and not show user how many guesses are left
-                if (GuessesLeft == 0 & userGuess != randomNumber)
+                if (GuessesLeft == 0 && userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                     break; //add break statement to ensure user cannot see how many guesses are left after using all 5 attempts
