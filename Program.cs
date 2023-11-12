@@ -38,7 +38,7 @@ namespace number_guessing
                     Console.WriteLine("\nYou guessed correctly!");
                     break;
                 }
-                else if (userGuess < 1 || userGuess > 100)
+                if (userGuess < 1 || userGuess > 100)
                 {
                     Console.WriteLine("\nPlease enter a value between 1 to 100!");
                     return;
