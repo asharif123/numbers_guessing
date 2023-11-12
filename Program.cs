@@ -31,7 +31,6 @@ namespace number_guessing
                 if (GuessesLeft == 0 && userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
-                    break; //add break statement to ensure user cannot see how many guesses are left after using all 5 attempts
                 }
                 //see if user enters a number btwn 1 to 100
                 if (userGuess == randomNumber) //see if user enters the correct value
