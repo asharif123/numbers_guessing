@@ -19,7 +19,7 @@ namespace number_guessing
         {
             //Generate a random number between 1 to 100
             Random rng = new Random();
-            int randomNumber = rng.Next(1, 100);
+            int randomNumber = rng.Next(1, 101);
             //for loop to ask user to guess a number
             for (int GuessesLeft = 4; GuessesLeft >= 0; GuessesLeft--)
             {
