@@ -25,7 +25,6 @@
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                 }
-                //see if user enters a number btwn 1 to 100
                 if (userGuess == randomNumber) //see if user enters the correct value
                 {
                     Console.WriteLine("\nYou guessed correctly!");
