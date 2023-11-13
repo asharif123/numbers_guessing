@@ -19,16 +19,23 @@ namespace number_guessing
         {
             //Generate a random number between 1 to 100
             Random rng = new Random();
-            int randomNumber = rng.Next(1, 101);
+            //define random number constraints
+            const int MINIMUM_RANDOM_NUMBER = 1;
+            const int MAXIMUM_RANDOM_NUMBER = 101;
+            int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
+
+            //number of guesses that user has to guess the correct number
+            const int maxNumOfGuesses = 4;
+            const int noMoreGuessesLeft = 0;
             //for loop to ask user to guess a number
-            for (int GuessesLeft = 4; GuessesLeft >= 0; GuessesLeft--)
+            for (int GuessesLeft = maxNumOfGuesses; GuessesLeft >= noMoreGuessesLeft; GuessesLeft--)
             {
-                Console.WriteLine("Guess a number between 1 to 100!\n");
+                Console.WriteLine("\nGuess a number between 1 to 100!\n");
                 int userGuess = int.Parse(Console.ReadLine());
                 //Game ends if user fails to guess the number in 5 attempts.
                 //and statement needed because if user enters correct number on last guess
                 //it will show user was correct and not show user how many guesses are left
-                if (GuessesLeft == 0 && userGuess != randomNumber)
+                if (GuessesLeft == noMoreGuessesLeft && userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                 }
@@ -38,7 +45,8 @@ namespace number_guessing
                     Console.WriteLine("\nYou guessed correctly!");
                     break;
                 }
-                if (userGuess < 1 || userGuess > 100)
+                //create separate if-else statements for when user enters a number from 1 to 100
+                if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
                 {
                     Console.WriteLine("\nPlease enter a value between 1 to 100!");
                     return;
