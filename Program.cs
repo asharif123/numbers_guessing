@@ -5,7 +5,6 @@ If the number they guess is too low, the program will say “too low” and if i
 The player wins when they guess the correct number.
 
 Added Difficulty: Put a limit on how many wrong guesses they can have. Too many and the game ends with “You lose”.
-
 rocket Tips: First thing to look at is generating a random number. Despite the language you choose, most of the time a random number can be created using a random generator function or object.
 .NET has the “Random” object and C++ has rand().
 Once you have a random number chosen, ask the player for a guess.
@@ -24,9 +23,9 @@ namespace number_guessing
             const int MAXIMUM_RANDOM_NUMBER = 101;
             int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
             //number of guesses that user has to guess the correct number
+            Console.WriteLine(randomNumber);
             const int maxNumOfGuesses = 4;
             const int noMoreGuessesLeft = 0;
-
             //for loop to ask user to guess a number
             for (int GuessesLeft = maxNumOfGuesses; GuessesLeft >= noMoreGuessesLeft; GuessesLeft--)
             {
@@ -51,9 +50,17 @@ namespace number_guessing
                     Console.WriteLine("\nPlease enter a value between 1 to 100!");
                     return;
                 }
+                else if (userGuess < randomNumber && (Math.Abs(randomNumber - userGuess) <= 5))
+                {
+                    Console.WriteLine($"\nYour guess is too low but you are close! You have {GuessesLeft} guesses left!");
+                }
                 else if (userGuess < randomNumber)
                 {
                     Console.WriteLine($"\nYour guess is too low! You have {GuessesLeft} guesses left!");
+                }
+                else if (userGuess > randomNumber && (Math.Abs(randomNumber - userGuess) <= 5))
+                {
+                    Console.WriteLine($"\nYour guess is too high but you are close! You have {GuessesLeft} guesses left!");
                 }
                 else
                 {
