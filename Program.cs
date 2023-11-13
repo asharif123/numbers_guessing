@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+    static void Main(string[] args)
         {
             //Generate a random number between 1 to 100
             Random rng = new Random();
