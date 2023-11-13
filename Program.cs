@@ -23,10 +23,10 @@ namespace number_guessing
             const int MINIMUM_RANDOM_NUMBER = 1;
             const int MAXIMUM_RANDOM_NUMBER = 101;
             int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
-
             //number of guesses that user has to guess the correct number
             const int maxNumOfGuesses = 4;
             const int noMoreGuessesLeft = 0;
+
             //for loop to ask user to guess a number
             for (int GuessesLeft = maxNumOfGuesses; GuessesLeft >= noMoreGuessesLeft; GuessesLeft--)
             {
