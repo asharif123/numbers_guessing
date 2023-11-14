@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
             //Generate a random number between 1 to 100
             Random rng = new Random();
@@ -11,17 +11,19 @@
             const int MAXIMUM_RANDOM_NUMBER = 101;
             int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
             //number of guesses that user has to guess the correct number
-            const int maxNumOfGuesses = 4;
-            const int noMoreGuessesLeft = 0;
+            const int MAX_NUM_OF_GUESSES = 4;
+            const int NO_MORE_GUESSES_LEFT = 0;
+            //max difference between random number and user guess to show if user is close
+            const int MAX_DIFFERENCE = 5;
             //for loop to ask user to guess a number
-            for (int GuessesLeft = maxNumOfGuesses; GuessesLeft >= noMoreGuessesLeft; GuessesLeft--)
+            for (int GuessesLeft = MAX_NUM_OF_GUESSES; GuessesLeft >= NO_MORE_GUESSES_LEFT; GuessesLeft--)
             {
                 Console.WriteLine("\nGuess a number between 1 to 100!\n");
                 int userGuess = int.Parse(Console.ReadLine());
                 //Game ends if user fails to guess the number in 5 attempts.
                 //and statement needed because if user enters correct number on last guess
                 //it will show user was correct and not show user how many guesses are left
-                if (GuessesLeft == noMoreGuessesLeft && userGuess != randomNumber)
+                if (GuessesLeft == NO_MORE_GUESSES_LEFT && userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                 }
@@ -39,7 +41,7 @@
                 //check if user's guess is off by 5
                 //added at beginning to ensure user is aware that guess is off by 5
                 //otherwise user will never know if he's close to guessing the correct number
-                else if (userGuess < randomNumber && (Math.Abs(randomNumber - userGuess) <= 5))
+                else if (userGuess < randomNumber && (Math.Abs(randomNumber - userGuess) <= MAX_DIFFERENCE))
                 {
                     Console.WriteLine($"\nYour guess is too low but you are close! You have {GuessesLeft} guesses left!");
                 }
@@ -47,7 +49,7 @@
                 {
                     Console.WriteLine($"\nYour guess is too low! You have {GuessesLeft} guesses left!");
                 }
-                else if (userGuess > randomNumber && (Math.Abs(randomNumber - userGuess) <= 5))
+                else if (userGuess > randomNumber && (Math.Abs(randomNumber - userGuess) <= MAX_DIFFERENCE))
                 {
                     Console.WriteLine($"\nYour guess is too high but you are close! You have {GuessesLeft} guesses left!");
                 }
