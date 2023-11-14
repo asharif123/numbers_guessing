@@ -41,7 +41,7 @@
                 //check if user's guess is off by 5
                 //added at beginning to ensure user is aware that guess is off by 5
                 //otherwise user will never know if he's close to guessing the correct number
-                else if (userGuess < randomNumber && (Math.Abs(randomNumber - userGuess) <= MAX_DIFFERENCE))
+                if (userGuess < randomNumber && (Math.Abs(randomNumber - userGuess) <= MAX_DIFFERENCE))
                 {
                     Console.WriteLine($"\nYour guess is too low but you are close! You have {GuessesLeft} guesses left!");
                 }
