@@ -20,6 +20,12 @@
             {
                 Console.WriteLine("\nGuess a number between 1 to 100!\n");
                 int userGuess = int.Parse(Console.ReadLine());
+                //as soon as user enters value, immediately determine if it falls between 1 to 100 range
+                if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
+                {
+                    Console.WriteLine("\nPlease enter a value between 1 to 100!");
+                    continue; //use continue to restart for loop if user enters a value out of range
+                }
                 //Game ends if user fails to guess the number in 5 attempts.
                 //and statement needed because if user enters correct number on last guess
                 //it will show user was correct and not show user how many guesses are left
@@ -31,12 +37,6 @@
                 {
                     Console.WriteLine("\nYou guessed correctly!");
                     break;
-                }
-                //create separate if-else statements for when user enters a number from 1 to 100
-                if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
-                {
-                    Console.WriteLine("\nPlease enter a value between 1 to 100!");
-                    return;
                 }
                 //check if user's guess is off by 5
                 //added at beginning to ensure user is aware that guess is off by 5
