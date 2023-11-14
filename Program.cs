@@ -26,13 +26,6 @@
                     Console.WriteLine("\nPlease enter a value between 1 to 100!");
                     continue; //use continue to restart for loop if user enters a value out of range
                 }
-                //Game ends if user fails to guess the number in 5 attempts.
-                //and statement needed because if user enters correct number on last guess
-                //it will show user was correct and not show user how many guesses are left
-                if (GuessesLeft == NO_MORE_GUESSES_LEFT && userGuess != randomNumber)
-                {
-                    Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
-                }
                 if (userGuess == randomNumber) //see if user enters the correct value
                 {
                     Console.WriteLine("\nYou guessed correctly!");
@@ -56,6 +49,13 @@
                 else
                 {
                     Console.WriteLine($"\nYou guess is too high! You have {GuessesLeft} guesses left!");
+                }
+                //Game ends if user fails to guess the number in 5 attempts.
+                //and statement needed because if user enters correct number on last guess
+                //it will show user was correct and not show user how many guesses are left
+                if (GuessesLeft == NO_MORE_GUESSES_LEFT && userGuess != randomNumber)
+                {
+                    Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                 }
             }
         }
