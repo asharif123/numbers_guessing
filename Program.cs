@@ -56,11 +56,11 @@
                 {
                     Console.WriteLine($"\nYou guess is too high! You have {GuessesLeft} guesses left!");
                 }
+ 
                 //Game ends if user fails to guess the number in 5 attempts.
                 //and statement needed because if user enters correct number on last guess
                 //it will show user was correct and not show user how many guesses are left
                 //add game over statement at end to ensure user sees game over as the last message
-
                 if (GuessesLeft == NO_MORE_GUESSES_LEFT && userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
