@@ -21,12 +21,14 @@
             {
                 Console.WriteLine($"\nGuess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
                 int userGuess = int.Parse(Console.ReadLine());
+
                 //as soon as user enters value, immediately determine if it falls between 1 to 100 range
                 if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
                 {
-                    Console.WriteLine("\nPlease enter a value between 1 to 100!");
+                    Console.WriteLine($"\nPlease enter a value between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!");
                     continue; //use continue to restart for loop if user enters a value out of range
                 }
+
                 if (userGuess == randomNumber) //see if user enters the correct value
                 {
                     Console.WriteLine("\nYou guessed correctly!");
@@ -37,6 +39,7 @@
                 //check if user's guess is off by 5
                 //added at beginning to ensure user is aware that guess is off by 5
                 //otherwise user will never know if he's close to guessing the correct number
+
                 if (userGuess < randomNumber && diffBetweenNumbers <= MAX_DIFFERENCE)
                 {
                     Console.WriteLine($"\nYour guess is too low but you are close! You have {GuessesLeft} guesses left!");
@@ -57,12 +60,12 @@
                 //and statement needed because if user enters correct number on last guess
                 //it will show user was correct and not show user how many guesses are left
                 //add game over statement at end to ensure user sees game over as the last message
+
                 if (GuessesLeft == NO_MORE_GUESSES_LEFT && userGuess != randomNumber)
                 {
                     Console.Write($"\nGame Over! The correct number is {randomNumber}!\n");
                 }
             }
-
         }
     }
 }
