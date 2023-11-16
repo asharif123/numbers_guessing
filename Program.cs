@@ -16,16 +16,15 @@
             const int NO_MORE_GUESSES_LEFT = 0;
             //max difference between random number and user guess to show if user is close
             const int MAX_DIFFERENCE = 4;
-            //variables to define number of guesses left and userGuess use to define game over code outside for loop
-            //needed since guessesLeft and userGuess are used in for loop
+            //variables to define number of guesses left use to define game over code outside for loop
+            //needed since guessesLeft is used in for loop
             int guessesLeft;
-            int userGuess = 0;
 
             //for loop to ask user to guess a number
             for (guessesLeft = MAX_NUM_OF_GUESSES; guessesLeft > NO_MORE_GUESSES_LEFT; guessesLeft--)
             {
                 Console.WriteLine($"\nGuess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
-                userGuess = int.Parse(Console.ReadLine());
+                int userGuess = int.Parse(Console.ReadLine());
 
                 //as soon as user enters value, immediately determine if it falls between 1 to 100 range
                 if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
