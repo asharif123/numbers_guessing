@@ -17,8 +17,8 @@
             const int MAX_DIFFERENCE = 5;
             //variables to define number of guesses left use to define game over code outside for loop
             int guessesLeft;
-            //for loop to ask user to guess a number
 
+            //for loop to ask user to guess a number
             for (guessesLeft = MAX_NUM_OF_GUESSES; guessesLeft >= NO_MORE_GUESSES_LEFT; guessesLeft--)
             {
                 Console.WriteLine($"\nGuess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
