@@ -18,10 +18,10 @@
             const int MAX_DIFFERENCE = 4;
             //variables to define number of guesses left use to define game over code outside for loop
             //needed since guessesLeft is used in for loop
-            int guessesLeft;
+            int guessesLeft = MAX_NUM_OF_GUESSES;
 
-            //for loop to ask user to guess a number
-            for (guessesLeft = MAX_NUM_OF_GUESSES; guessesLeft > NO_MORE_GUESSES_LEFT; guessesLeft--)
+            //while loop to ask user to guess a number
+            while (guessesLeft > NO_MORE_GUESSES_LEFT)
             {
                 Console.WriteLine($"\nGuess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
                 int userGuess = int.Parse(Console.ReadLine());
@@ -58,9 +58,9 @@
                     Console.WriteLine("\nYou are close!");
                 }
 
-                //append number of guesses that user has left based on above if conditions
-                //subtract guessesLeft by 1 to give accurate number of guesses that user has left
-                Console.WriteLine($"\nYou have {guessesLeft - 1} guesses left!");
+                //decrement number of guesses left each time user guesses incorrectly
+                guessesLeft -= 1;
+                Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
             }
 
             //Game ends if user fails to guess the number in 5 attempts.
