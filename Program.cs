@@ -9,13 +9,13 @@
             //define random number constraints
             const int MINIMUM_RANDOM_NUMBER = 1;
             const int MAXIMUM_RANDOM_NUMBER = 101;
-            int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
             //number of guesses that user has to guess the correct number
             const int MAX_NUM_OF_GUESSES = 5;
             const int NO_MORE_GUESSES_LEFT = 0;
             //max difference between random number and user guess to show if user is close
             const int MAX_DIFFERENCE = 4;
-            //variables to define number of guesses left use to define game over code outside for loop
+            
+            int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
             //needed since guessesLeft is used in for loop
             int guessesLeft = MAX_NUM_OF_GUESSES;
 
