@@ -4,7 +4,6 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\nYou have 5 chances to guess the correct number!\n");
             //Generate a random number between 1 to 100
             Random rng = new Random();
             //define random number constraints
@@ -23,8 +22,12 @@
             //while loop to ask user to guess a number
             while (guessesLeft > NO_MORE_GUESSES_LEFT)
             {
+                Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
                 Console.WriteLine($"\nGuess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
                 int userGuess = int.Parse(Console.ReadLine());
+
+                //calculate the absolute value of difference between randomNumber & userGuess
+                int diffBetweenNumbers = Math.Abs(randomNumber - userGuess);
 
                 //as soon as user enters value, immediately determine if it falls between 1 to 100 range
                 if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
@@ -38,9 +41,6 @@
                     Console.WriteLine("\nYou guessed correctly!");
                     break;
                 }
-
-                //calculate the absolute value of difference between randomNumber & userGuess
-                int diffBetweenNumbers = Math.Abs(randomNumber - userGuess);
 
                 //if statement to see if user enters a number less than or greater than randomNumber
                 if (userGuess < randomNumber)
@@ -60,7 +60,6 @@
 
                 //decrement number of guesses left each time user guesses incorrectly
                 guessesLeft -= 1;
-                Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
             }
 
             //Game ends if user fails to guess the number in 5 attempts.
