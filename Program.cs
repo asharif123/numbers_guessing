@@ -13,21 +13,19 @@
             const int MAX_NUM_OF_GUESSES = 5;
             const int NO_MORE_GUESSES_LEFT = 0;
             //max difference between random number and user guess to show if user is close
-            const int MAX_DIFFERENCE = 4;
+            const int MAX_DIFFERENCE = 5;
             
             int randomNumber = rng.Next(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
             //needed since guessesLeft is used in for loop
             int guessesLeft = MAX_NUM_OF_GUESSES;
 
             //while loop to ask user to guess a number
+            //use while loop so if user enters value out of range, immediately restart loop without decrementing guesses
             while (guessesLeft > NO_MORE_GUESSES_LEFT)
             {
                 Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
-                Console.WriteLine($"\nGuess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
+                Console.WriteLine($"Guess a number between {MINIMUM_RANDOM_NUMBER} to {MAXIMUM_RANDOM_NUMBER - 1}!\n");
                 int userGuess = int.Parse(Console.ReadLine());
-
-                //calculate the absolute value of difference between randomNumber & userGuess
-                int diffBetweenNumbers = Math.Abs(randomNumber - userGuess);
 
                 //as soon as user enters value, immediately determine if it falls between 1 to 100 range
                 if (userGuess < MINIMUM_RANDOM_NUMBER || userGuess > MAXIMUM_RANDOM_NUMBER - 1)
@@ -51,6 +49,9 @@
                 {
                     Console.WriteLine("\nGuess is too high!");
                 }
+
+                //calculate the absolute value of difference between randomNumber & userGuess
+                int diffBetweenNumbers = Math.Abs(randomNumber - userGuess);
 
                 //separate if statement to determine if user's guess is no more than 5 off from randomNumber
                 if (diffBetweenNumbers <= MAX_DIFFERENCE)
